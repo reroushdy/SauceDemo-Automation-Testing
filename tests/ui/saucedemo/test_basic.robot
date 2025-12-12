@@ -3,6 +3,7 @@ Library    SeleniumLibrary
 
 *** Test Cases ***
 Test Basic Navigation
+    [Tags]    local_only
     Open Browser    https://www.saucedemo.com/    firefox
     Sleep    3s
     Input Text    id:user-name    standard_user

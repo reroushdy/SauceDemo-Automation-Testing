@@ -32,6 +32,7 @@ jobs:
         run: |
           robot -d reports \
             -v DEFAULT_BROWSER:headlessfirefox \
+            --exclude local_only \
             tests/ui/saucedemo
 
       - name: Show Robot output summary
