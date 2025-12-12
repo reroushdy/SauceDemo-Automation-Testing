@@ -28,10 +28,10 @@ jobs:
       - name: Install Google Chrome
         uses: browser-actions/setup-chrome@v1
 
-      - name: Run Robot Framework tests (headless Chrome)
+      - name: Run Robot Framework tests (headless Firefox)
         run: |
           robot -d reports \
-            -v DEFAULT_BROWSER:chrome \
+            -v DEFAULT_BROWSER:headlessfirefox \
             tests/ui/saucedemo
 
       - name: Show Robot output summary
