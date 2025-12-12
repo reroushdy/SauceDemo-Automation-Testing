@@ -8,12 +8,12 @@ Resource    ../config/browsers.robot
 *** Keywords ***
 Open Browser To SauceDemo
     [Documentation]    Open browser at SauceDemo login page using Firefox as the default browser.
-
+    
     # Always use Firefox unless overridden via command line
     Run Keyword If    '${DEFAULT_BROWSER}' == 'firefox'
     ...    Open Browser    ${BASE_URL}    firefox
     ...    ELSE
-    ...    Open Browser    ${BASE_URL}    ${DEFAULT_BROWSER}
+    ...    Open Browser    ${BASE_URL}    chrome    options=add_argument=@{CHROME_ARGS}
 
     Maximize Browser Window
     Set Selenium Timeout    ${ELEMENT_TIMEOUT}
