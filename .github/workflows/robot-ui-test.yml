@@ -34,7 +34,14 @@ jobs:
             -v BROWSER:firefox \
             tests/ui/saucedemo
 
+      - name: Show Robot output summary
+        if: failure()
+        run: |
+          echo "==== Robot Output Summary ===="
+          sed -n '1,200p' reports/output.xml || true      
+
       - name: Upload Robot reports
+        if: always() 
         uses: actions/upload-artifact@v4
         with:
           name: robot-reports
