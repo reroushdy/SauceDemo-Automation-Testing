@@ -13,7 +13,9 @@ Open Browser To SauceDemo
     Run Keyword If    '${DEFAULT_BROWSER}' == 'firefox'
     ...    Open Browser    ${BASE_URL}    firefox
     ...    ELSE
-    ...    Open Browser    ${BASE_URL}    chrome    options=add_argument=@{CHROME_ARGS}
+    ...    Open Browser    ${BASE_URL}    chrome
+    ...    options=add_argument=--headless,new;add_argument=--no-sandbox;add_argument=--disable-dev-shm-usage
+
 
     Maximize Browser Window
     Set Selenium Timeout    ${ELEMENT_TIMEOUT}
