@@ -25,15 +25,13 @@ jobs:
           pip install robotframework-seleniumlibrary
           pip install webdriver-manager
 
-      - name: Install Google Chrome
-        uses: browser-actions/setup-chrome@v1
+      - name: Install Firefox
+        uses: browser-actions/setup-firefox@v1
 
-      - name: Run Robot Framework tests (headless)
-        env:
-          ROBOT_BROWSER: headlesschrome
+      - name: Run Robot Framework tests (headless Firefox)
         run: |
           robot -d reports \
-            -v BROWSER:headlesschrome \
+            -v BROWSER:firefox \
             tests/ui/saucedemo
 
       - name: Upload Robot reports
