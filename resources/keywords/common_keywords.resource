@@ -14,8 +14,7 @@ Open Browser To SauceDemo
     ...    Open Browser    ${BASE_URL}    firefox
     ...    ELSE
     ...    Open Browser    ${BASE_URL}    chrome
-    ...    options=add_argument=--headless;add_argument=--no-sandbox;add_argument=--disable-dev-shm-usage
-
+    ...    options=arguments=--headless,--no-sandbox,--disable-dev-shm-usage
 
     Maximize Browser Window
     Set Selenium Timeout    ${ELEMENT_TIMEOUT}
