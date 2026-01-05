@@ -32,38 +32,48 @@ REQ-CART-003  Continue Shopping returns to inventory page
 REQ-CHECKOUT-001 Checkout information can be submitted
 REQ-CHECKOUT-002 Checkout overview loads correctly
 REQ-CHECKOUT-003 Completing checkout shows confirmation
-REQ-CHECKOUT-004 Error messages appear for missing required fields
+REQ-CHECKOUT-004 Error messages appear for missing or invalid required fields
 ```
 
 
 ## 📙 3. Test Case → Requirement Traceability Matrix
-🔵 Login Tests
-| Test Case                              | Requirement(s)        | Suite(s)                        |
-|----------------------------------------|------------------------|---------------------------------|
-| Valid Login Should Succeed             | REQ-LOGIN-001         | login, login_regression, smoke |
-| Locked Out User Cannot Login           | REQ-LOGIN-003         | login, login_regression        |
-| Login Fails With Wrong Password        | REQ-LOGIN-002         | login, login_regression        |
-| Login Requires Username And Password   | REQ-LOGIN-004         | login, login_regression        |
 
-🟣 Inventory Tests
-| Test Case                                  | Requirement(s)                | Suite(s)                           |
-|--------------------------------------------|-------------------------------|------------------------------------|
-| User Can Sort Items From A To Z            | REQ-INVENTORY-002             | inventory, inventory_regression    |
-| User Can Sort Items From High To Low Price | REQ-INVENTORY-003             | inventory, inventory_regression    |
-| User Can Add Item To Cart From Inventory   | REQ-INVENTORY-004, REQ-CART-001 | inventory, inventory_regression |
+### 🔵 Login Tests
+| Test Case                             | Requirement(s) | Test Type         |
+|--------------------------------------|----------------|-------------------|
+| Valid Login Should Succeed            | REQ-LOGIN-001   | Functional, Smoke |
+| Locked Out User Cannot Login          | REQ-LOGIN-003   | Negative          |
+| Login Fails With Wrong Password       | REQ-LOGIN-002   | Negative          |
+| Login Requires Username And Password  | REQ-LOGIN-004   | Negative          |
 
-🟡 Cart Tests
-| Test Case                                  | Requirement(s)        | Suite(s)                       |
-|--------------------------------------------|------------------------|--------------------------------|
-| Cart Should Show Added Product             | REQ-CART-001          | cart, cart_regression          |
-| User Can Remove Product From Cart          | REQ-CART-002          | cart, cart_regression          |
-| Continue Shopping Returns User To Inventory| REQ-CART-003          | cart, cart_regression          |
+---
 
-🟢 Checkout Tests
-| Test Case                            | Requirement(s)                    | Suite(s)                         |
-|--------------------------------------|-----------------------------------|----------------------------------|
-| User Can Complete Checkout Flow      | REQ-CHECKOUT-001, REQ-CHECKOUT-002, REQ-CHECKOUT-003 | checkout, checkout_regression, smoke |
-| Checkout Requires First Name         | REQ-CHECKOUT-004                 | checkout, checkout_regression     |
+### 🟣 Inventory Tests
+| Test Case                                   | Requirement(s)                  | Test Type  |
+|---------------------------------------------|----------------------------------|------------|
+| User Can Sort Items From A To Z             | REQ-INVENTORY-002               | Functional |
+| User Can Sort Items From High To Low Price  | REQ-INVENTORY-003               | Functional |
+| User Can Add Item To Cart From Inventory    | REQ-INVENTORY-004, REQ-CART-001 | Functional |
+
+---
+
+### 🟡 Cart Tests
+| Test Case                                    | Requirement(s) | Test Type  |
+|----------------------------------------------|----------------|------------|
+| Cart Should Show Added Product               | REQ-CART-001    | Functional |
+| User Can Remove Product From Cart            | REQ-CART-002    | Functional |
+| Continue Shopping Returns User To Inventory  | REQ-CART-003    | Functional |
+
+---
+
+### 🟢 Checkout Tests
+| Test Case                                             | Requirement(s)                                 | Test Type               |
+|-------------------------------------------------------|-------------------------------------------------|-------------------------|
+| User Can Complete Checkout Flow                       | REQ-CHECKOUT-001, REQ-CHECKOUT-002, REQ-CHECKOUT-003 | Functional, Smoke |
+| Checkout Requires First Name                          | REQ-CHECKOUT-004                               | Negative                |
+| Checkout Requires First Name When Whitespace Entered  | REQ-CHECKOUT-004                               | Edge Case               |
+| Checkout Invalid Field Combinations (Data-Driven)     | REQ-CHECKOUT-004                               | Negative, Data-Driven   |
+
 
 
 ## 📘 4. Requirement → Test Case Coverage Map

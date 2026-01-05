@@ -36,6 +36,7 @@ This repository is designed as both a learning platform and a portfolio-ready au
 
 
 ## 📁 Project Structure
+```
 Automation Testing
     tests/
         ui/
@@ -44,6 +45,9 @@ Automation Testing
                 inventory.robot
                 cart.robot
                 checkout.robot
+                checkout_negative.robot
+                checkout_edgeCase.robot
+                checkout_dataDriven.robot
                 smoke.robot
                 regression/
                     login_regression.robot
@@ -72,15 +76,17 @@ Automation Testing
     TRACEBILITY.md
     requirements.txt
     run_regression.sh
+```
 
 📌 Roles (Folder → Responsibility):
+```
 	•	tests/ → High-level UI scenarios (readable like specs)
 	•	resources/pages/ → Page Objects: locators + low-level interactions
 	•	resources/keywords/ → Reusable common flows (login, logout, navigation)
     •	resources/config/ → Environment, browser, credentials, settings
     •	reports/ → Test runners output HTML/XML reports
     •	.github/workflows/ → CI/CD pipeline (GitHub Actions)
-
+```
 
 ## 🔍 Debugging Protocol
 A structured method for diagnosing any UI automation failure.
@@ -177,9 +183,19 @@ This creates traceability between features → tests → page objects.
 	•	Continue shopping → returns to inventory
 
 🔹 checkout.robot — Checkout & Validation
-	•	Good checkout
-	•	Missing field errors
-	•	Confirmation page
+Goal: Validate checkout flow and form validation.
+Core Functional Coverage
+	•	Successful checkout
+	•	Missing required field errors
+	•	Confirmation page validation
+Newly Added Tests (🔹 checkout_negative.robot, 🔹 checkout_edgeCase.robot, 🔹 checkout_dataDriven.robot)
+These tests expand validation coverage without impacting regression stability:
+	•	Negative Validation
+	•	Checkout blocked when First Name is missing
+	•	Edge Case
+	•	Whitespace-only First Name accepted (documented behavior / known limitation)
+	•	Data-Driven Validation
+	•	Multiple invalid checkout input combinations using template-driven tests
 
 🔹 Regression Suites
 
